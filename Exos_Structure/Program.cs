@@ -18,9 +18,7 @@ for (int i = 0; i < valeurs.Length; i++)
 {
     valeurs[i] = i + 1;
 }
-
 string[] couleurs = new string[] { "Coeur", "Carreau", "Pique", "Trèfle" };
-
 //Je crée le tableau de 52 Cartes
 Cartes[] jeuDeCartes = new Cartes[52];
 int icheck = 0;
@@ -28,9 +26,9 @@ foreach (int valeur in valeurs)
 {
     foreach (string couleur in couleurs)
     {
-        jeuDeCartes[icheck].Numéro = valeur; 
+        jeuDeCartes[icheck].Numéro = valeur;
         jeuDeCartes[icheck].Couleur = couleur;
-        icheck++; 
+        icheck++;
     }
 }
 // Vérification de mon paquet 
@@ -38,7 +36,11 @@ foreach (Cartes CartesduPaquet in jeuDeCartes)
 {
     Console.WriteLine($"{CartesduPaquet.Numéro} de {CartesduPaquet.Couleur}");
 }
+Console.WriteLine(  );
+Console.WriteLine(  );
 Console.WriteLine("Paquet Complet et OK !!! ");
+Console.WriteLine(  );
+Console.WriteLine(  );
 //Thread.Sleep(2000); // oui je sais j'abuse des thread , mais j'aime bien sur la console 😎
 //Console.Clear();
 
@@ -47,22 +49,30 @@ Random mélange = new Random();
 for (int i = 0; i < jeuDeCartes.Length; i++)
 {
     int j = mélange.Next(jeuDeCartes.Length);
+    int k;
 
     do
     {
-        Cartes temp = jeuDeCartes[i];
-        jeuDeCartes[i] = jeuDeCartes[j];
-        jeuDeCartes[j] = temp;
+        k = mélange.Next(jeuDeCartes.Length);
+
     }
 
-    while (i == j);
+    while (j == k);
+    Cartes temp = jeuDeCartes[j];
+    jeuDeCartes[j] = jeuDeCartes[k];
+    jeuDeCartes[k] = temp;
+
 }
-    Console.WriteLine("Voici les Cartes mélangées");
 
-    foreach (Cartes carte in jeuDeCartes) 
-    {
-        Console.WriteLine(carte.Numéro + " de " + carte.Couleur);
-    }
+Console.WriteLine("Voici les Cartes mélangées");
+Console.WriteLine(  );
+Console.WriteLine(  );
+
+foreach (Cartes carte in jeuDeCartes)
+{
+    Console.WriteLine(carte.Numéro + " de " + carte.Couleur);
+}
+Console.ReadLine();
 
 
 
@@ -70,6 +80,7 @@ for (int i = 0; i < jeuDeCartes.Length; i++)
 
 
 
+#region Modèle exemple
 // Modèle exemple
 // Définir un tableau d'entiers contenant les valeurs comprises entre 1 et 13 inclus
 //using Exos_Structure;
@@ -117,6 +128,8 @@ for (int i = 0; i < jeuDeCartes.Length; i++)
 //foreach (Cartes carte in jeuDeCartes) // Parcourir le tableau de cartes
 //{
 //    Console.WriteLine(carte.Numéro + " de " + carte.Couleur); // Afficher la valeur et la couleur de la carte
+#endregion
+#endregion
 
 
 
@@ -127,43 +140,7 @@ for (int i = 0; i < jeuDeCartes.Length; i++)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#region Exo1.2 Jeu de Bataille
 
 
 
